@@ -7,6 +7,7 @@ app = Flask(__name__)
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
+
 DLKIP_CONTEXT = """
 Вы — официальный AI-консультант DLKIP Electronics.
 
@@ -36,6 +37,7 @@ MPR-62 — реле комплексной защиты трехфазных э�
 Контакты:
 Заместитель директора — Ислам Нигматов
 Телефон: +998 90 000 37 79
+Telegram оператора: @Islam_Nigmatov
 
 Руководитель отдела продаж — Шавкат Халиков
 Телефон: +998 92 001 33 82
@@ -48,7 +50,6 @@ E-mail: dlkipworker03@gmail.com
 Телефон: +998 94 072 80 98
 
 Telegram-бот: @DlkipElectronics_bot
-Telegram оператора: @Islam_Nigmatov
 Telegram компании: @dlmanokip
 Instagram: dlkip_electronics
 YouTube: DLKIP
@@ -62,6 +63,7 @@ YouTube: DLKIP
 - Отвечайте на русском языке, кратко и профессионально.
 """
 
+
 PLATFORM_LINKS = [
     (1, "Glotr.uz",
      "https://glotr.uz/rele-kompleksnoy-zashiti-trexfaznix-elektrodvigateley-mpr-62-kontrol-napryajeniya-toka-temperaturi-dlkip-electronics-p-1158338/",
@@ -71,7 +73,7 @@ PLATFORM_LINKS = [
     (2, "Prom.uz",
      "https://www.prom.uz/ads/rele-kompleksnoi-zashhity-trexfaznyx-elektrodvigatelei-mpr-62-kontrol-napryazheniya-toka-temperatury-dlkip-electronics/",
      "https://www.prom.uz/ads/blok-zashhity-impulsnyx-perenapryazenii-3pn-400-v-na-din-reiku-zashhita-promyslennogo-oborudovaniya-dlkip-electronics/",
-     "https://www.prom.uz/ads/blok-zashhity-ot-impulsnyx-perenapryazenii-3380-v-na-din-reiku-zashhita-promyslennoi-avtomatiki-dlkip-electronics/"),
+     "https://www.prom.uz/ads/blok-zashhity-ot-impulsnyx-perenapryazhenii-3380-v-na-din-reiku-zashchita-promyslennoi-avtomatiki-dlkip-electronics/"),
 
     (3, "Leoboard.ru",
      "https://leboard.ru/uz/tashkent/vse_dlya_biznesa/oborudovanie_dlya_biznesa/rele_kompleksnoy_zaschity_trehfaznyh_elektrodvigateley_mpr_62_6177747",
@@ -130,8 +132,8 @@ PLATFORM_LINKS = [
 
     (14, "Karvon.uz",
      "https://karvon24.uz/ru/ad/rele-kompleksnoy-zaschity-trehfaznyh-elektrodvigateley-mpr-62--ad_1787565710800/",
-     "https://karvon24.uz/ru/ad/blok-zaschity-impulsnyh-perenapryazheniy-3p-n-400-v--ad_1787565957562/",
-     "https://karvon24.uz/ru/ad/blok-zaschity-ot-impulsnyh-perenapryazheniy-3-380-v--ad_1787566221080/"),
+     "https://karvon24.uz/ru/ad/blok-zashchity-impulsnyh-perenapryazheniy-3p-n-400-v--ad_1787565957562/",
+     "https://karvon24.uz/ru/ad/blok-zashchity-ot-impulsnyh-perenapryazheniy-3-380-v--ad_1787566221080/"),
 
     (15, "Tashkent.Unibo.su",
      "https://tashkent.unibo.su/m37943194/rele-kompleksnoy-zaschiti-trehfaznih-elektrodvigateley-mpr-62.htm",
@@ -146,7 +148,7 @@ PLATFORM_LINKS = [
     (17, "Узбекистан Бесплатные Объявления",
      "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4loa4ff.xn--p1ai/rele-kompleksnoj-zashhity-trehfaznyh-elektrodvigatelej-mpr-62-2694655",
      "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4loa4ff.xn--p1ai/blok-zashhity-impulsnyh-perenapryazhenij-3p-n-400-v-2694643",
-     "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4loa4ff.xn--p1ai/blok-zashhity-ot-impulsnyh-perenapryazhenij-3-380-v-2694656"),
+     "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4ff.xn--p1ai/blok-zashhity-ot-impulsnyh-perenapryazhenij-3-380-v-2694656"),
 
     (18, "2GIS.uz",
      "https://2gis.uz/tashkent/search/Dlkip%20Electronics%2C%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F/firm/70000001116423561/69.374881%2C41.246852",
@@ -241,7 +243,9 @@ PLATFORM_CARDS = platform_cards()
 
 @app.route("/")
 def home():
+
     return f"""<!DOCTYPE html>
+
 <html lang="ru">
 
 <head>
@@ -252,6 +256,7 @@ def home():
       content="width=device-width, initial-scale=1.0">
 
 <title>DLKIP Electronics • DLKIPChatBot</title>
+
 
 <style>
 
@@ -276,7 +281,12 @@ html {{
 
 body {{
     min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color:var(--text);
 
     background:
@@ -297,9 +307,13 @@ body {{
 
 body:before {{
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     opacity:.10;
 
     background-image:
@@ -401,7 +415,8 @@ body:before {{
     padding:10px;
     overflow:hidden;
 
-    box-shadow:0 0 24px rgba(255,60,0,.08);
+    box-shadow:
+        0 0 24px rgba(255,60,0,.08);
 }}
 
 .logo-box img {{
@@ -474,6 +489,7 @@ body:before {{
     font-size:13px;
     font-weight:800;
     line-height:1.35;
+    overflow-wrap:anywhere;
     word-break:break-word;
 }}
 
@@ -487,7 +503,8 @@ body:before {{
 .banner {{
     width:100%;
 
-    border:1px solid rgba(255,77,0,.32);
+    border:
+        1px solid rgba(255,77,0,.32);
 
     border-radius:18px;
 
@@ -504,18 +521,26 @@ body:before {{
 
 .banner img {{
     display:block;
+
     width:100%;
     height:auto;
+
     aspect-ratio:1983 / 793;
+
     object-fit:contain;
+
     background:#060606;
 }}
 
 .banner-caption {{
     padding:8px 10px;
+
     text-align:center;
+
     color:#666;
+
     font-size:9px;
+
     letter-spacing:.4px;
 }}
 
@@ -533,13 +558,19 @@ body:before {{
 }}
 
 .card {{
-    background:linear-gradient(180deg,#151515,#080808);
+    background:
+        linear-gradient(
+            180deg,
+            #151515,
+            #080808
+        );
 
     border:1px solid var(--line);
 
     border-radius:18px;
 
-    box-shadow:0 0 22px rgba(255,60,0,.045);
+    box-shadow:
+        0 0 22px rgba(255,60,0,.045);
 }}
 
 .chat {{
@@ -548,12 +579,12 @@ body:before {{
 }}
 
 
-/* CHAT */
+/* CHAT HEADER */
 
 .chat-head {{
-    min-height:88px;
+    min-height:72px;
 
-    padding:16px 20px;
+    padding:12px 16px;
 
     display:flex;
 
@@ -570,20 +601,23 @@ body:before {{
         );
 
     border-bottom:
-        1px solid rgba(255,77,0,.20);
+        1px solid
+        rgba(255,77,0,.20);
 }}
 
 .bot-info {{
     display:flex;
+
     align-items:center;
-    gap:13px;
+
+    gap:10px;
 }}
 
 .bot-avatar {{
-    width:58px;
-    height:58px;
+    width:48px;
+    height:48px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     display:flex;
 
@@ -597,31 +631,36 @@ body:before {{
             #e62d00
         );
 
-    font-size:29px;
+    font-size:24px;
+
+    flex-shrink:0;
 
     box-shadow:
-        0 0 16px rgba(255,70,0,.2);
+        0 0 14px rgba(255,70,0,.18);
 }}
 
 .bot-name {{
-    font-size:21px;
+    font-size:18px;
     font-weight:900;
 }}
 
 .online {{
     display:flex;
+
     align-items:center;
+
     gap:5px;
 
-    margin-top:5px;
+    margin-top:4px;
 
     color:#999;
-    font-size:13px;
+
+    font-size:11px;
 }}
 
 .dot {{
-    width:9px;
-    height:9px;
+    width:8px;
+    height:8px;
 
     border-radius:50%;
 
@@ -634,31 +673,36 @@ body:before {{
 }}
 
 @keyframes pulse {{
-    50% {{opacity:.3}}
+    50% {{
+        opacity:.3;
+    }}
 }}
 
 .badge {{
-    padding:8px 12px;
+    padding:6px 10px;
 
     border-radius:99px;
 
     border:
-        1px solid rgba(255,80,0,.32);
+        1px solid
+        rgba(255,80,0,.32);
 
     color:var(--orange2);
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:900;
 }}
 
 
+/* MESSAGES */
+
 #messages {{
-    height:470px;
+    height:420px;
 
     overflow-y:auto;
 
-    padding:20px;
+    padding:16px;
 
     background:
         radial-gradient(
@@ -779,6 +823,7 @@ body:before {{
 }}
 
 @keyframes typing {{
+
     30% {{
         opacity:1;
         transform:translateY(-2px);
@@ -787,6 +832,7 @@ body:before {{
     0%,60%,100% {{
         opacity:.22;
     }}
+
 }}
 
 
@@ -924,6 +970,8 @@ body:before {{
     color:var(--orange2);
 
     margin-bottom:3px;
+
+    line-height:1.3;
 }}
 
 .name {{
@@ -937,7 +985,7 @@ body:before {{
 .link {{
     display:block;
 
-    margin-top:3px;
+    margin-top:4px;
 
     color:#ddd;
 
@@ -947,7 +995,7 @@ body:before {{
 
     font-weight:700;
 
-    line-height:1.4;
+    line-height:1.45;
 
     overflow-wrap:anywhere;
 
@@ -964,7 +1012,8 @@ body:before {{
 .socials {{
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap:7px;
 
@@ -993,10 +1042,14 @@ body:before {{
     font-size:12px;
 
     font-weight:800;
+
+    padding:6px;
 }}
 
 .social:hover {{
-    border-color:rgba(255,77,0,.58);
+    border-color:
+        rgba(255,77,0,.58);
+
     color:var(--orange2);
 }}
 
@@ -1049,7 +1102,8 @@ body:before {{
     color:var(--orange2);
 
     border:
-        1px solid rgba(255,75,0,.27);
+        1px solid
+        rgba(255,75,0,.27);
 
     font-size:10px;
 
@@ -1061,6 +1115,7 @@ body:before {{
 
 .platforms {{
     margin-top:14px;
+
     padding:18px;
 }}
 
@@ -1082,11 +1137,9 @@ body:before {{
 
 .section-head p {{
     font-size:11px;
+
     color:#777;
 }}
-
-
-/* MAP BUTTONS */
 
 .map-links {{
     display:grid;
@@ -1103,7 +1156,6 @@ body:before {{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     text-decoration:none;
@@ -1133,7 +1185,7 @@ body:before {{
 }}
 
 
-/* ALL PLATFORMS BUTTON */
+/* ALL PLATFORMS */
 
 details {{
     margin-top:11px;
@@ -1152,7 +1204,9 @@ details summary {{
 
     padding:13px 15px;
 
-    border:1px solid rgba(255,77,0,.30);
+    border:
+        1px solid
+        rgba(255,77,0,.30);
 
     border-radius:10px;
 
@@ -1200,6 +1254,8 @@ details summary:hover {{
     flex-direction:column;
 
     justify-content:space-between;
+
+    overflow:hidden;
 }}
 
 .platform-card:hover {{
@@ -1219,6 +1275,8 @@ details summary:hover {{
     color:#fff;
 
     overflow-wrap:anywhere;
+
+    word-break:break-word;
 }}
 
 .platform-links {{
@@ -1261,11 +1319,12 @@ details summary:hover {{
 
 .platform-links a:hover {{
     background:rgba(255,70,0,.10);
+
     border-color:var(--orange);
 }}
 
 
-/* OPERATOR */
+/* OPERATOR BUTTON */
 
 .operator {{
     position:fixed;
@@ -1330,7 +1389,7 @@ details summary:hover {{
 
     bottom:84px;
 
-    width:340px;
+    width:360px;
 
     z-index:90;
 
@@ -1356,7 +1415,7 @@ details summary:hover {{
 
     justify-content:space-between;
 
-    padding:14px 16px;
+    padding:13px 15px;
 
     background:
         linear-gradient(
@@ -1372,27 +1431,37 @@ details summary:hover {{
 
 .operator-window-title {{
     font-size:17px;
+
     font-weight:900;
 }}
 
 .operator-close {{
+    width:30px;
+    height:30px;
+
     border:0;
 
-    background:transparent;
+    border-radius:8px;
+
+    background:#171717;
 
     color:#aaa;
 
     font-size:20px;
+
+    line-height:1;
 
     cursor:pointer;
 }}
 
 .operator-close:hover {{
     color:#fff;
+
+    background:#222;
 }}
 
 .operator-window-body {{
-    padding:16px;
+    padding:15px;
 }}
 
 .operator-window-body p {{
@@ -1400,9 +1469,51 @@ details summary:hover {{
 
     font-size:14px;
 
-    line-height:1.55;
+    line-height:1.5;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
+}}
+
+.operator-input {{
+    width:100%;
+
+    min-height:90px;
+
+    resize:vertical;
+
+    border:
+        1px solid #2a2a2a;
+
+    border-radius:10px;
+
+    background:#0b0b0b;
+
+    color:#fff;
+
+    padding:11px 12px;
+
+    outline:none;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:14px;
+
+    line-height:1.45;
+}}
+
+.operator-input:focus {{
+    border-color:var(--orange);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,70,0,.05);
+}}
+
+.operator-input::placeholder {{
+    color:#666;
 }}
 
 .operator-telegram {{
@@ -1415,6 +1526,8 @@ details summary:hover {{
     width:100%;
 
     min-height:46px;
+
+    margin-top:10px;
 
     padding:10px 12px;
 
@@ -1436,11 +1549,26 @@ details summary:hover {{
     font-weight:900;
 
     text-align:center;
+
+    cursor:pointer;
+
+    border:0;
 }}
 
 .operator-telegram:hover {{
     box-shadow:
-        0 8px 20px rgba(255,65,0,.18);
+        0 8px 20px
+        rgba(255,65,0,.18);
+}}
+
+.operator-hint {{
+    margin-top:8px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:10px;
 }}
 
 
@@ -1483,7 +1611,9 @@ details summary:hover {{
         grid-template-columns:
             repeat(3,1fr);
     }}
+
 }}
+
 
 @media(max-width:700px) {{
 
@@ -1497,6 +1627,7 @@ details summary:hover {{
 
     .top-actions a {{
         font-size:10px;
+
         padding:7px 8px;
     }}
 
@@ -1532,6 +1663,7 @@ details summary:hover {{
 
     .message {{
         max-width:90%;
+
         font-size:16px;
     }}
 
@@ -1545,11 +1677,16 @@ details summary:hover {{
 
     #operator-window {{
         left:10px;
+
         right:10px;
+
         bottom:76px;
+
         width:auto;
     }}
+
 }}
+
 
 @media(max-width:450px) {{
 
@@ -1575,12 +1712,14 @@ details summary:hover {{
 
 }}
 
+
 </style>
 
 </head>
 
 
 <body>
+
 
 <div class="app">
 
@@ -1602,33 +1741,43 @@ details summary:hover {{
 
     <div class="top-actions">
 
-        <a href="https://t.me/DlkipElectronics_bot"
-           target="_blank"
-           rel="noopener">
+        <a
+            href="https://t.me/DlkipElectronics_bot"
+            target="_blank"
+            rel="noopener"
+        >
             🤖 Bot
         </a>
 
-        <a href="https://t.me/dlmanokip"
-           target="_blank"
-           rel="noopener">
+        <a
+            href="https://t.me/dlmanokip"
+            target="_blank"
+            rel="noopener"
+        >
             💬 Telegram
         </a>
 
-        <a href="https://www.instagram.com/dlkip_electronics/"
-           target="_blank"
-           rel="noopener">
+        <a
+            href="https://www.instagram.com/dlkip_electronics/"
+            target="_blank"
+            rel="noopener"
+        >
             📸 Instagram
         </a>
 
-        <a href="https://www.youtube.com/@DLKIP/videos"
-           target="_blank"
-           rel="noopener">
+        <a
+            href="https://www.youtube.com/@DLKIP/videos"
+            target="_blank"
+            rel="noopener"
+        >
             ▶ YouTube
         </a>
 
-        <a href="https://dlkip.uz"
-           target="_blank"
-           rel="noopener">
+        <a
+            href="https://dlkip.uz"
+            target="_blank"
+            rel="noopener"
+        >
             🌐 DLKIP.UZ
         </a>
 
@@ -1684,7 +1833,7 @@ details summary:hover {{
         </a>
 
         <a href="mailto:dlkipworker03@gmail.com">
-            dlkipworker03@gmail.com
+            ✉ dlkipworker03@gmail.com
         </a>
 
     </div>
@@ -1796,6 +1945,7 @@ details summary:hover {{
         <button
             class="send"
             onclick="sendMessage()"
+            type="button"
         >
             ОТПРАВИТЬ
         </button>
@@ -1848,6 +1998,15 @@ details summary:hover {{
             href="tel:+998900003779"
         >
             📞 +998 90 000 37 79
+        </a>
+
+        <a
+            class="link"
+            href="https://t.me/Islam_Nigmatov"
+            target="_blank"
+            rel="noopener"
+        >
+            💬 @Islam_Nigmatov
         </a>
 
     </div>
@@ -2077,14 +2236,12 @@ details summary:hover {{
             📍 2GIS
         </a>
 
-
         <a
             href="https://www.google.com/maps/search/?api=1&query=DLKIP+Electronics+Tashkent"
             target="_blank"
         >
             🗺 Google Maps
         </a>
-
 
         <a
             href="https://www.goldenpages.uz/company/?Id=121676"
@@ -2093,14 +2250,12 @@ details summary:hover {{
             Golden Pages
         </a>
 
-
         <a
             href="https://top.uz/company/dlkip"
             target="_blank"
         >
             Top.uz
         </a>
-
 
         <a
             href="https://www.yellowpages.uz/kompaniya/dlkip"
@@ -2154,15 +2309,19 @@ details summary:hover {{
 
 <div id="operator-window">
 
+
     <div class="operator-window-head">
 
         <div class="operator-window-title">
             👨‍💼 Оператор
         </div>
 
+
         <button
             class="operator-close"
             onclick="closeOperator()"
+            type="button"
+            aria-label="Закрыть"
         >
             ×
         </button>
@@ -2173,24 +2332,30 @@ details summary:hover {{
     <div class="operator-window-body">
 
         <p>
-            Здравствуйте! Здесь вы можете связаться
-            с оператором DLKIP Electronics.
-        </p>
-
-        <p>
-            Для прямого общения перейдите
-            в Telegram оператора.
+            Здравствуйте! Здесь вы можете
+            написать оператору DLKIP Electronics.
         </p>
 
 
-        <a
+        <textarea
+            id="operator-message"
+            class="operator-input"
+            placeholder="Введите сообщение..."
+        ></textarea>
+
+
+        <button
             class="operator-telegram"
-            href="https://t.me/Islam_Nigmatov"
-            target="_blank"
-            rel="noopener"
+            onclick="sendToOperator()"
+            type="button"
         >
             💬 НАПИСАТЬ ОПЕРАТОРУ В TELEGRAM
-        </a>
+        </button>
+
+
+        <div class="operator-hint">
+            После нажатия откроется Telegram
+        </div>
 
     </div>
 
@@ -2198,6 +2363,9 @@ details summary:hover {{
 
 
 <script>
+
+
+/* AI CHAT */
 
 async function sendMessage() {{
 
@@ -2214,6 +2382,7 @@ async function sendMessage() {{
 
 
     messages.innerHTML += `
+
         <div class="message-row user-row">
 
             <div class="message user-message">
@@ -2227,6 +2396,7 @@ async function sendMessage() {{
             </div>
 
         </div>
+
     `;
 
 
@@ -2238,6 +2408,7 @@ async function sendMessage() {{
 
 
     messages.innerHTML += `
+
         <div
             class="message-row bot-row"
             id="${{typingId}}"
@@ -2260,6 +2431,7 @@ async function sendMessage() {{
             </div>
 
         </div>
+
     `;
 
 
@@ -2299,6 +2471,7 @@ async function sendMessage() {{
 
 
         messages.innerHTML += `
+
             <div class="message-row bot-row">
 
                 <div class="message bot-message">
@@ -2312,6 +2485,7 @@ async function sendMessage() {{
                 </div>
 
             </div>
+
         `;
 
     }} catch(error) {{
@@ -2325,6 +2499,7 @@ async function sendMessage() {{
 
 
         messages.innerHTML += `
+
             <div class="message-row bot-row">
 
                 <div class="message bot-message">
@@ -2338,6 +2513,7 @@ async function sendMessage() {{
                 </div>
 
             </div>
+
         `;
 
     }}
@@ -2349,17 +2525,36 @@ async function sendMessage() {{
 }}
 
 
+/* OPEN / CLOSE OPERATOR WINDOW */
+
 function operatorChat() {{
 
     const windowBox =
         document.getElementById("operator-window");
 
+
     if (
         windowBox.style.display === "block"
     ) {{
+
         windowBox.style.display = "none";
+
     }} else {{
+
         windowBox.style.display = "block";
+
+        setTimeout(() => {{
+
+            const input =
+                document.getElementById(
+                    "operator-message"
+                );
+
+            if (input)
+                input.focus();
+
+        }}, 100);
+
     }}
 
 }}
@@ -2373,6 +2568,48 @@ function closeOperator() {{
 
 }}
 
+
+/* SEND OPERATOR MESSAGE TO TELEGRAM */
+
+function sendToOperator() {{
+
+    const input =
+        document.getElementById(
+            "operator-message"
+        );
+
+
+    const message =
+        input.value.trim();
+
+
+    if (!message) {{
+
+        input.focus();
+
+        return;
+
+    }}
+
+
+    const telegramText =
+        encodeURIComponent(message);
+
+
+    const telegramUrl =
+        "https://t.me/Islam_Nigmatov?text="
+        + telegramText;
+
+
+    window.open(
+        telegramUrl,
+        "_blank"
+    );
+
+}}
+
+
+/* ESCAPE HTML */
 
 function escapeHtml(text) {{
 
@@ -2398,21 +2635,31 @@ function escapeHtml(text) {{
 def chat():
 
     if not client:
-        return jsonify({
-            "reply": "API Gemini ещё не подключён."
-        })
 
-    data = request.get_json() or {}
+        return jsonify({{
+            "reply":
+                "API Gemini ещё не подключён."
+        }})
 
-    message = data.get(
-        "message",
-        ""
-    ).strip()
+
+    data =
+        request.get_json() or {{}}
+
+
+    message =
+        data.get(
+            "message",
+            ""
+        ).strip()
+
 
     if not message:
-        return jsonify({
-            "reply": "Задайте ваш вопрос."
-        })
+
+        return jsonify({{
+            "reply":
+                "Задайте ваш вопрос."
+        }})
+
 
     prompt = f"""
 {DLKIP_CONTEXT}
@@ -2424,16 +2671,21 @@ def chat():
 Не выдумывайте цену, наличие или характеристики.
 """
 
+
     try:
 
-        response = client.models.generate_content(
-            model="gemini-3.6-flash",
-            contents=prompt
-        )
+        response =
+            client.models.generate_content(
+                model="gemini-3.6-flash",
+                contents=prompt
+            )
 
-        return jsonify({
-            "reply": response.text
-        })
+
+        return jsonify({{
+            "reply":
+                response.text
+        }})
+
 
     except Exception as e:
 
@@ -2442,11 +2694,15 @@ def chat():
             e
         )
 
-        return jsonify({
+
+        return jsonify({{
             "reply":
                 "Произошла ошибка при обработке запроса."
-        })
+        }})
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+
+    app.run(
+        debug=True
+    )
