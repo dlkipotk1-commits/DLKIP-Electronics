@@ -71,9 +71,9 @@ PLATFORM_LINKS = [
      "https://glotr.uz/blok-zashiti-ot-impulsnix-perenapryazheniy-3380-v-na-din-reyku-zashita-promishlennoy-avtomatiki-dlkip-electronics-p-1158236/"),
 
     (2, "Prom.uz",
-     "https://www.prom.uz/ads/rele-kompleksnoi-zashhity-trexfaznyx-elektrodvigatelei-mpr-62-kontrol-napryazheniya-toka-temperatury-dlkip-electronics/",
+     "https://www.prom.uz/ads/rele-kompleksnoi-zashhity-trexfaznyx-elektrodvigatelei-mpr-62-kontrol-napryazeniya-toka-temperatury-dlkip-electronics/",
      "https://www.prom.uz/ads/blok-zashhity-impulsnyx-perenapryazenii-3pn-400-v-na-din-reiku-zashhita-promyslennogo-oborudovaniya-dlkip-electronics/",
-     "https://www.prom.uz/ads/blok-zashhity-ot-impulsnyx-perenapryazhenii-3380-v-na-din-reiku-zashchita-promyslennoi-avtomatiki-dlkip-electronics/"),
+     "https://www.prom.uz/ads/blok-zashhity-ot-impulsnyx-perenapryazenii-3380-v-na-din-reiku-zashchita-promyslennoi-avtomatiki-dlkip-electronics/"),
 
     (3, "Leoboard.ru",
      "https://leboard.ru/uz/tashkent/vse_dlya_biznesa/oborudovanie_dlya_biznesa/rele_kompleksnoy_zaschity_trehfaznyh_elektrodvigateley_mpr_62_6177747",
@@ -147,7 +147,7 @@ PLATFORM_LINKS = [
 
     (17, "Узбекистан Бесплатные Объявления",
      "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4loa4ff.xn--p1ai/rele-kompleksnoj-zashhity-trehfaznyh-elektrodvigatelej-mpr-62-2694655",
-     "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4loa4ff.xn--p1ai/blok-zashhity-impulsnyh-perenapryazhenij-3p-n-400-v-2694643",
+     "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4ff.xn--p1ai/blok-zashhity-impulsnyh-perenapryazhenij-3p-n-400-v-2694643",
      "https://xn--80abmghlx4ajd.xn--80abbembcyvesfij3at4ff.xn--p1ai/blok-zashhity-ot-impulsnyh-perenapryazhenij-3-380-v-2694656"),
 
     (18, "2GIS.uz",
@@ -225,14 +225,14 @@ def platform_cards():
             )
 
         html.append(
-            f'''
+            f"""
             <article class="platform-card">
                 <div class="platform-name">{name}</div>
                 <div class="platform-links">
                     {"".join(links)}
                 </div>
             </article>
-            '''
+            """
         )
 
     return "".join(html)
@@ -257,7 +257,6 @@ def home():
 
 <title>DLKIP Electronics • DLKIPChatBot</title>
 
-
 <style>
 
 :root {{
@@ -281,12 +280,7 @@ html {{
 
 body {{
     min-height:100vh;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     color:var(--text);
 
     background:
@@ -307,13 +301,9 @@ body {{
 
 body:before {{
     content:"";
-
     position:fixed;
-
     inset:0;
-
     pointer-events:none;
-
     opacity:.10;
 
     background-image:
@@ -407,16 +397,12 @@ body:before {{
     border:1px solid rgba(255,77,0,.45);
     border-radius:18px;
     background:linear-gradient(145deg,#131313,#070707);
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding:10px;
     overflow:hidden;
-
-    box-shadow:
-        0 0 24px rgba(255,60,0,.08);
+    box-shadow:0 0 24px rgba(255,60,0,.08);
 }}
 
 .logo-box img {{
@@ -449,21 +435,13 @@ body:before {{
 
 .hero-tag {{
     display:inline-block;
-
     margin-top:9px;
-
     padding:8px 12px;
-
     border:1px solid rgba(255,77,0,.30);
-
     border-radius:99px;
-
     color:var(--orange2);
-
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:.7px;
 }}
 
@@ -502,16 +480,10 @@ body:before {{
 
 .banner {{
     width:100%;
-
-    border:
-        1px solid rgba(255,77,0,.32);
-
+    border:1px solid rgba(255,77,0,.32);
     border-radius:18px;
-
     background:#090909;
-
     overflow:hidden;
-
     margin-bottom:14px;
 
     box-shadow:
@@ -521,26 +493,18 @@ body:before {{
 
 .banner img {{
     display:block;
-
     width:100%;
     height:auto;
-
     aspect-ratio:1983 / 793;
-
     object-fit:contain;
-
     background:#060606;
 }}
 
 .banner-caption {{
     padding:8px 10px;
-
     text-align:center;
-
     color:#666;
-
     font-size:9px;
-
     letter-spacing:.4px;
 }}
 
@@ -583,13 +547,10 @@ body:before {{
 
 .chat-head {{
     min-height:72px;
-
     padding:12px 16px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     background:
@@ -607,9 +568,7 @@ body:before {{
 
 .bot-info {{
     display:flex;
-
     align-items:center;
-
     gap:10px;
 }}
 
@@ -620,7 +579,6 @@ body:before {{
     border-radius:10px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -632,7 +590,6 @@ body:before {{
         );
 
     font-size:24px;
-
     flex-shrink:0;
 
     box-shadow:
@@ -646,15 +603,12 @@ body:before {{
 
 .online {{
     display:flex;
-
     align-items:center;
-
     gap:5px;
 
     margin-top:4px;
 
     color:#999;
-
     font-size:11px;
 }}
 
@@ -690,7 +644,6 @@ body:before {{
     color:var(--orange2);
 
     font-size:10px;
-
     font-weight:900;
 }}
 
@@ -779,7 +732,8 @@ body:before {{
     color:#fff;
 
     box-shadow:
-        0 3px 12px rgba(255,65,0,.1);
+        0 3px 12px
+        rgba(255,65,0,.1);
 }}
 
 .label {{
@@ -794,11 +748,8 @@ body:before {{
 
 .typing {{
     display:flex;
-
     gap:4px;
-
     align-items:center;
-
     height:14px;
 }}
 
@@ -810,8 +761,7 @@ body:before {{
 
     background:var(--orange);
 
-    animation:
-        typing 1.1s infinite;
+    animation:typing 1.1s infinite;
 }}
 
 .typing span:nth-child(2) {{
@@ -832,7 +782,6 @@ body:before {{
     0%,60%,100% {{
         opacity:.22;
     }}
-
 }}
 
 
@@ -840,9 +789,7 @@ body:before {{
 
 .input-area {{
     display:flex;
-
     gap:8px;
-
     padding:10px;
 
     background:#080808;
@@ -866,7 +813,8 @@ body:before {{
     border-color:var(--orange);
 
     box-shadow:
-        0 0 0 3px rgba(255,70,0,.05);
+        0 0 0 3px
+        rgba(255,70,0,.05);
 }}
 
 #text {{
@@ -875,7 +823,6 @@ body:before {{
     height:38px;
 
     border:0;
-
     outline:0;
 
     background:transparent;
@@ -916,7 +863,8 @@ body:before {{
 
 .send:hover {{
     box-shadow:
-        0 7px 17px rgba(255,65,0,.19);
+        0 7px 17px
+        rgba(255,65,0,.19);
 
     transform:translateY(-1px);
 }}
@@ -1115,19 +1063,15 @@ body:before {{
 
 .platforms {{
     margin-top:14px;
-
     padding:18px;
 }}
 
 .section-head {{
     display:flex;
-
     justify-content:space-between;
-
     align-items:end;
 
     gap:10px;
-
     margin-bottom:10px;
 }}
 
@@ -1137,7 +1081,6 @@ body:before {{
 
 .section-head p {{
     font-size:11px;
-
     color:#777;
 }}
 
@@ -1224,7 +1167,8 @@ details summary:hover {{
         rgba(255,77,0,.65);
 
     box-shadow:
-        0 0 16px rgba(255,70,0,.08);
+        0 0 16px
+        rgba(255,70,0,.08);
 }}
 
 .platform-grid {{
@@ -1291,7 +1235,6 @@ details summary:hover {{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     min-height:32px;
@@ -1318,9 +1261,11 @@ details summary:hover {{
 }}
 
 .platform-links a:hover {{
-    background:rgba(255,70,0,.10);
+    background:
+        rgba(255,70,0,.10);
 
-    border-color:var(--orange);
+    border-color:
+        var(--orange);
 }}
 
 
@@ -1330,7 +1275,6 @@ details summary:hover {{
     position:fixed;
 
     right:18px;
-
     bottom:18px;
 
     z-index:80;
@@ -1367,14 +1311,17 @@ details summary:hover {{
     cursor:pointer;
 
     box-shadow:
-        0 7px 22px rgba(0,0,0,.42);
+        0 7px 22px
+        rgba(0,0,0,.42);
 }}
 
 .operator:hover {{
-    border-color:var(--orange);
+    border-color:
+        var(--orange);
 
     box-shadow:
-        0 0 19px rgba(255,65,0,.15);
+        0 0 19px
+        rgba(255,65,0,.15);
 }}
 
 
@@ -1386,7 +1333,6 @@ details summary:hover {{
     position:fixed;
 
     right:18px;
-
     bottom:84px;
 
     width:360px;
@@ -1402,8 +1348,10 @@ details summary:hover {{
     border-radius:16px;
 
     box-shadow:
-        0 18px 50px rgba(0,0,0,.55),
-        0 0 25px rgba(255,65,0,.08);
+        0 18px 50px
+        rgba(0,0,0,.55),
+        0 0 25px
+        rgba(255,65,0,.08);
 
     overflow:hidden;
 }}
@@ -1431,7 +1379,6 @@ details summary:hover {{
 
 .operator-window-title {{
     font-size:17px;
-
     font-weight:900;
 }}
 
@@ -1456,7 +1403,6 @@ details summary:hover {{
 
 .operator-close:hover {{
     color:#fff;
-
     background:#222;
 }}
 
@@ -1482,7 +1428,8 @@ details summary:hover {{
     resize:vertical;
 
     border:
-        1px solid #2a2a2a;
+        1px solid
+        #2a2a2a;
 
     border-radius:10px;
 
@@ -1505,7 +1452,8 @@ details summary:hover {{
 }}
 
 .operator-input:focus {{
-    border-color:var(--orange);
+    border-color:
+        var(--orange);
 
     box-shadow:
         0 0 0 3px
@@ -1520,7 +1468,6 @@ details summary:hover {{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     width:100%;
@@ -1627,7 +1574,6 @@ details summary:hover {{
 
     .top-actions a {{
         font-size:10px;
-
         padding:7px 8px;
     }}
 
@@ -1663,7 +1609,6 @@ details summary:hover {{
 
     .message {{
         max-width:90%;
-
         font-size:16px;
     }}
 
@@ -1677,11 +1622,8 @@ details summary:hover {{
 
     #operator-window {{
         left:10px;
-
         right:10px;
-
         bottom:76px;
-
         width:auto;
     }}
 
@@ -1711,7 +1653,6 @@ details summary:hover {{
     }}
 
 }}
-
 
 </style>
 
@@ -2085,6 +2026,7 @@ details summary:hover {{
             class="social"
             href="https://t.me/DlkipElectronics_bot"
             target="_blank"
+            rel="noopener"
         >
             🤖 Bot
         </a>
@@ -2093,6 +2035,7 @@ details summary:hover {{
             class="social"
             href="https://t.me/dlmanokip"
             target="_blank"
+            rel="noopener"
         >
             💬 Telegram
         </a>
@@ -2101,6 +2044,7 @@ details summary:hover {{
             class="social"
             href="https://www.instagram.com/dlkip_electronics/"
             target="_blank"
+            rel="noopener"
         >
             📸 Instagram
         </a>
@@ -2109,6 +2053,7 @@ details summary:hover {{
             class="social"
             href="https://www.youtube.com/@DLKIP/videos"
             target="_blank"
+            rel="noopener"
         >
             ▶ YouTube
         </a>
@@ -2117,6 +2062,7 @@ details summary:hover {{
             class="social"
             href="https://dlkip.uz"
             target="_blank"
+            rel="noopener"
         >
             🌐 DLKIP.UZ
         </a>
@@ -2149,6 +2095,7 @@ details summary:hover {{
             <a
                 href="https://glotr.uz/rele-kompleksnoy-zashiti-trexfaznix-elektrodvigateley-mpr-62-kontrol-napryajeniya-toka-temperaturi-dlkip-electronics-p-1158338/"
                 target="_blank"
+                rel="noopener"
             >
                 ОТКРЫТЬ
             </a>
@@ -2169,6 +2116,7 @@ details summary:hover {{
             <a
                 href="https://glotr.uz/blok-zashiti-impulsnix-perenapryajeniy-3pn-400-v-na-din-reyku-zashita-promishlennogo-oborudovaniya-dlkip-electronics-p-1158240/"
                 target="_blank"
+                rel="noopener"
             >
                 ОТКРЫТЬ
             </a>
@@ -2189,6 +2137,7 @@ details summary:hover {{
             <a
                 href="https://glotr.uz/blok-zashiti-ot-impulsnix-perenapryazheniy-3380-v-na-din-reyku-zashita-promishlennoy-avtomatiki-dlkip-electronics-p-1158236/"
                 target="_blank"
+                rel="noopener"
             >
                 ОТКРЫТЬ
             </a>
@@ -2232,34 +2181,43 @@ details summary:hover {{
         <a
             href="https://2gis.uz/tashkent/search/Dlkip%20Electronics%2C%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F/firm/70000001116423561/69.374881%2C41.246852"
             target="_blank"
+            rel="noopener"
         >
             📍 2GIS
         </a>
 
+
         <a
             href="https://www.google.com/maps/search/?api=1&query=DLKIP+Electronics+Tashkent"
             target="_blank"
+            rel="noopener"
         >
             🗺 Google Maps
         </a>
 
+
         <a
             href="https://www.goldenpages.uz/company/?Id=121676"
             target="_blank"
+            rel="noopener"
         >
             Golden Pages
         </a>
 
+
         <a
             href="https://top.uz/company/dlkip"
             target="_blank"
+            rel="noopener"
         >
             Top.uz
         </a>
 
+
         <a
             href="https://www.yellowpages.uz/kompaniya/dlkip"
             target="_blank"
+            rel="noopener"
         >
             Yellow Pages
         </a>
@@ -2525,12 +2483,14 @@ async function sendMessage() {{
 }}
 
 
-/* OPEN / CLOSE OPERATOR WINDOW */
+/* OPERATOR WINDOW */
 
 function operatorChat() {{
 
     const windowBox =
-        document.getElementById("operator-window");
+        document.getElementById(
+            "operator-window"
+        );
 
 
     if (
@@ -2550,8 +2510,9 @@ function operatorChat() {{
                     "operator-message"
                 );
 
-            if (input)
+            if (input) {{
                 input.focus();
+            }}
 
         }}, 100);
 
@@ -2569,7 +2530,7 @@ function closeOperator() {{
 }}
 
 
-/* SEND OPERATOR MESSAGE TO TELEGRAM */
+/* SEND TO TELEGRAM */
 
 function sendToOperator() {{
 
@@ -2636,29 +2597,27 @@ def chat():
 
     if not client:
 
-        return jsonify({{
+        return jsonify({
             "reply":
                 "API Gemini ещё не подключён."
-        }})
+        })
 
 
-    data =
-        request.get_json() or {{}}
+    data = request.get_json() or {}
 
 
-    message =
-        data.get(
-            "message",
-            ""
-        ).strip()
+    message = data.get(
+        "message",
+        ""
+    ).strip()
 
 
     if not message:
 
-        return jsonify({{
+        return jsonify({
             "reply":
                 "Задайте ваш вопрос."
-        }})
+        })
 
 
     prompt = f"""
@@ -2674,17 +2633,16 @@ def chat():
 
     try:
 
-        response =
-            client.models.generate_content(
-                model="gemini-3.6-flash",
-                contents=prompt
-            )
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=prompt
+        )
 
 
-        return jsonify({{
+        return jsonify({
             "reply":
                 response.text
-        }})
+        })
 
 
     except Exception as e:
@@ -2695,10 +2653,10 @@ def chat():
         )
 
 
-        return jsonify({{
+        return jsonify({
             "reply":
                 "Произошла ошибка при обработке запроса."
-        }})
+        })
 
 
 if __name__ == "__main__":
