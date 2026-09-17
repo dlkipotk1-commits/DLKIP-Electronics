@@ -689,7 +689,7 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
         <img src="/static/website.png" alt="DLKIP.UZ"> DLKIP.UZ
     </a>
 </div>
-</div>
+
 
 <div class="card panel">
     <h2 class="products-title">
