@@ -504,7 +504,6 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
 
 <section class="banner">
     <img src="/static/shablon.jpg" alt="DLKIP Electronics">
-    <div class="banner-caption">DLKIP Electronics • Информационный блок</div>
 </section>
 
 <section class="center-videos">
