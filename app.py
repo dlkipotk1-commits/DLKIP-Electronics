@@ -294,7 +294,7 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
 .operator-window-body p {{ color:#bdbdbd; font-size:14px; line-height:1.55; margin-bottom:12px; }}
 .operator-telegram {{ display:flex; align-items:center; justify-content:center; width:100%; min-height:46px; padding:10px 12px; border-radius:10px; background:linear-gradient(135deg,#ff6200,#ea3000); color:#fff; text-decoration:none; font-size:12px; font-weight:900; text-align:center; }}
 .operator-telegram:hover {{ box-shadow:0 8px 20px rgba(255,65,0,.18); }}
-.footer {{ text-align:center; color:#4d4d4d; font-size:10px; padding:14px 4px 3px; }}
+.footer {{ text-align:center; color:#4d4d4d; font-size:16px; padding:14px 4px 3px; }}
 @media(max-width:1000px) {{
     .hero {{ grid-template-columns:160px 1fr; }}
     .quick {{ grid-column:1 / -1; }}
@@ -425,6 +425,31 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     height:32px;
     object-fit:contain;
     flex:0 0 32px;
+}}
+.operator img {{
+    width:30px;
+    height:30px;
+    object-fit:contain;
+    flex:0 0 30px;
+}}
+
+.operator {{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}}
+
+.operator-window-title {{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}}
+
+.operator-window-title img {{
+    width:30px;
+    height:30px;
+    object-fit:contain;
+    flex:0 0 30px;
 }}
 </style>
 </head>
@@ -676,26 +701,39 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
         <a href="https://top.uz/company/dlkip" target="_blank">Top.uz</a>
         <a href="https://www.yellowpages.uz/kompaniya/dlkip" target="_blank">Yellow Pages</a>
     </div>
-    <details>
-        <summary>Показать все площадки и ссылки на товары</summary>
-        <div class="platform-grid">{PLATFORM_CARDS}</div>
-    </details>
+   <details>
+    <summary>Показать все площадки и ссылки на товары</summary>
+    <div class="platform-grid">{PLATFORM_CARDS}</div>
+</details>
 </section>
 
 <div class="footer">DLKIP Electronics • DLKIPChatBot • Ташкент • 2026</div>
 </div>
 
-<div class="operator" onclick="operatorChat()">👨‍💼 Оператор</div>
+<div class="operator" onclick="operatorChat()">
+    <img src="/static/operator.png" alt="Оператор">
+    <span>Оператор</span>
+</div>
 
 <div id="operator-window">
     <div class="operator-window-head">
-        <div class="operator-window-title">👨‍💼 Оператор</div>
+        <div class="operator-window-title">
+            <img src="/static/operator.png" alt="Оператор">
+            <span>Оператор</span>
+        </div>
         <button class="operator-close" onclick="closeOperator()">×</button>
     </div>
+
     <div class="operator-window-body">
         <p>Здравствуйте! Здесь вы можете связаться с оператором DLKIP Electronics.</p>
         <p>Для прямого общения перейдите в Telegram оператора.</p>
-        <a class="operator-telegram" href="https://t.me/Islam_Nigmatov" target="_blank" rel="noopener">💬 НАПИСАТЬ ОПЕРАТОРУ В TELEGRAM</a>
+
+        <a class="operator-telegram"
+           href="https://t.me/Islam_Nigmatov"
+           target="_blank"
+           rel="noopener">
+            💬 НАПИСАТЬ ОПЕРАТОРУ В TELEGRAM
+        </a>
     </div>
 </div>
 
