@@ -333,18 +333,23 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     height:22px;
     object-fit:contain;
     vertical-align:middle;
-    margin-right:5px;
 }}
 
 .social {{
-    display:flex;
+    display:grid;
+    grid-template-columns:26px 90px;
     align-items:center;
     justify-content:center;
-    gap:5px;
+    column-gap:5px;
+    text-align:left;
 }}
 
 .social img {{
-    margin-right:0;
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    margin:0;
+    justify-self:center;
 }}
 
 </style>
