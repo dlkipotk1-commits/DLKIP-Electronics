@@ -11,9 +11,9 @@ app = Flask(__name__)
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
-# TELEGRAM OPERATOR — haqiqiy qiymatlar Render > Environment da saqlanadi
-TELEGRAM_BOT_TOKEN = os.environ.get("8998246715:AAGAAOcdrCojAJ3ORK9S95B8oH6Wnqr6EWU")
-TELEGRAM_OPERATOR_CHAT_ID = os.environ.get("6860549697")
+
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_OPERATOR_CHAT_ID = os.environ.get("TELEGRAM_OPERATOR_CHAT_ID")
 
 # Operator javoblarini sayt mijoziga bog'lash uchun vaqtinchalik xotira.
 # Productionda Redis/Postgres ishlatish yaxshiroq.
