@@ -578,6 +578,19 @@ DLKIP Electronics — технологии для надежной автома�
 </div>
 
 <script>
+
+document.addEventListener("DOMContentLoaded", function () {{
+    const videos = document.querySelectorAll(".gutter-video video");
+
+    videos.forEach(function(video) {{
+        video.addEventListener("loadedmetadata", function() {{
+            if (video.duration > 10) {{
+                video.currentTime = 10;
+            }}
+        }});
+    }});
+}});
+
 async function sendMessage() {{
     const input = document.getElementById("text");
     const messages = document.getElementById("messages");
