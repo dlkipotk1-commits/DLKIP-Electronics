@@ -489,7 +489,7 @@ DLKIP Electronics — технологии для надежной автома�
 <aside class="side">
 <div class="card panel">
     <h2 class="company-title">
-        <img src="/static/company.png" alt="DLKIP Electronics">
+        <img src="/static/workshop.png" alt="DLKIP Electronics">
         DLKIP Electronics
     </h2>
     <p>Оборудование и решения для промышленной автоматизации, КИПиА, электроники и электротехнических систем.</p>
