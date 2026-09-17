@@ -8,7 +8,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
 DLKIP_CONTEXT = """
-Вы — официальный AI-консультант DLKIP Electronics.
+Вы — официальный бот-оператор компании DLKIP Electronics.
 
 DLKIP Electronics работает в области промышленной автоматизации,
 КИПиА, датчиков, реле, контроллеров, источников питания,
@@ -409,7 +409,7 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
             </div>
             <div>
                 <div class="bot-name">DLKIP Operator Bot</div>
-                <div class="online"><span class="dot"></span>Онлайн • цифровой помощник</div>
+                <div class="online"><span class="dot"></span>Онлайн • Оператор помощник</div>
             </div>
         </div>
         <div class="badge">AI-ПЛАТФОРМА</div>
@@ -419,15 +419,19 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
         <div class="message-row bot-row">
             <div class="message bot-message">
                 <div class="label">DLKIP Operator Bot</div>
-                🤖 Здравствуйте!
+                🤖 Добро пожаловать в DLKIP Electronics!<br><br>
 
-                Я цифровой помощник DLKIP Electronics.
+Я — Оператор бот  консультант DLKIP Electronics.<br><br>
 
-                Помогу с информацией о продукции,
-                технических характеристиках,
-                автоматизации и оборудовании.
+Помогу вам:<br>
+• подобрать оборудование под вашу задачу;<br>
+• получить техническую информацию о продукции;<br>
+• разобраться в характеристиках и возможностях оборудования;<br>
+• найти решения в области промышленной автоматизации и КИПиА.<br><br>
 
-                Задайте ваш вопрос.
+Опишите вашу задачу или задайте вопрос — я постараюсь предложить подходящее решение.<br><br>
+
+DLKIP Electronics — технологии для надежной автоматизации.
             </div>
         </div>
     </div>
