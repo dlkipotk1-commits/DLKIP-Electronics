@@ -216,7 +216,6 @@ body:before {{
     object-fit:cover;
     background:#050505;
 }}
-
 .main {{ display:grid; grid-template-columns:minmax(0,1.58fr) minmax(300px,.82fr); gap:14px; }}
 .card {{ background:linear-gradient(180deg,#151515,#080808); border:1px solid var(--line); border-radius:18px; box-shadow:0 0 22px rgba(255,60,0,.045); }}
 .chat {{ overflow:hidden; border-color:rgba(255,77,0,.48); }}
