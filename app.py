@@ -191,7 +191,7 @@ body:before {{
 .gutter-video {{
     position:absolute;
     top:110px;
-    width:350px;
+    width:225px;
     height:2500px;
     overflow:hidden;
     border:1px solid rgba(255,77,0,.32);
