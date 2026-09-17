@@ -377,6 +377,31 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     flex:0 0 38px;
 }}
 
+.contacts-title {{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}}
+
+.contacts-title img {{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    flex:0 0 32px;
+}}
+
+.contact .link {{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}}
+
+.contact .link img {{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    flex:0 0 22px;
+}}
 </style>
 </head>
 <body>
@@ -496,28 +521,48 @@ DLKIP Electronics — технологии для надежной автома�
 </div>
 
 <div class="card panel">
-    <h2>📞 Контакты</h2>
+    <h2 class="contacts-title">
+        <img src="/static/mobil.png" alt="Контакты">
+        Контакты
+    </h2>
+
     <div class="contact">
         <div class="role">Заместитель директора</div>
         <div class="name">Ислам Нигматов</div>
-        <a class="link" href="tel:+998900003779">📞 +998 90 000 37 79</a>
+        <a class="link" href="tel:+998900003779">
+            <img src="/static/mobil.png" alt="Телефон">
+            +998 90 000 37 79
+        </a>
     </div>
+
     <div class="contact">
         <div class="role">Руководитель отдела продаж</div>
         <div class="name">Шавкат Халиков</div>
-        <a class="link" href="tel:+998920013382">📞 +998 92 001 33 82</a>
-        <a class="link" href="mailto:dlkipworker03@gmail.com">✉ dlkipworker03@gmail.com</a>
+        <a class="link" href="tel:+998920013382">
+            <img src="/static/mobil.png" alt="Телефон">
+            +998 92 001 33 82
+        </a>
     </div>
+
     <div class="contact">
         <div class="role">Дизайн чат-бота</div>
         <div class="name">Solihov Muhammadali</div>
-        <a class="link" href="tel:+998940728098">📞 +998 94 072 80 98</a>
+        <a class="link" href="tel:+998940728098">
+            <img src="/static/mobil.png" alt="Телефон">
+            +998 94 072 80 98
+        </a>
     </div>
+
     <div class="contact">
         <div class="role">Дизайн сайта</div>
         <div class="name">Solihov Muhammadali</div>
-        <a class="link" href="tel:+998940728098">📞 +998 94 072 80 98</a>
+        <a class="link" href="tel:+998940728098">
+            <img src="/static/mobil.png" alt="Телефон">
+            +998 94 072 80 98
+        </a>
     </div>
+</div>
+
 <div class="socials">
     <a class="social" href="https://t.me/DlkipElectronics_bot" target="_blank" rel="noopener">
         <img src="/static/bot.jpg" alt="Bot"> Bot
