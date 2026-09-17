@@ -200,8 +200,8 @@ body:before {{
     box-shadow:0 0 24px rgba(255,55,0,.08);
     z-index:2;
 }}
-.gutter-video.left {{ left:calc(50% - 700px); }}
-.gutter-video.right {{ right:calc(50% - 700px); }}
+.gutter-video.left {{ left:calc(50% - 900px); }}
+.gutter-video.right {{ right:calc(50% - 900px); }}
 .gutter-video video {{
     display:block;
     width:100%;
