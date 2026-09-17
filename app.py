@@ -666,7 +666,7 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
         </div>
     </div>
 
-    <div class="socials">
+
 
 <div class="socials">
     <a class="social" href="https://t.me/DlkipElectronics_bot" target="_blank" rel="noopener">
