@@ -512,56 +512,63 @@ DLKIP Electronics — технологии для надежной автома�
 </div>
 
 <aside class="side">
-<div class="card panel">
-    <h2 class="company-title">
-        <img src="/static/workshop.png" alt="DLKIP Electronics">
-        DLKIP Electronics
-    </h2>
-    <p>Оборудование и решения для промышленной автоматизации, КИПиА, электроники и электротехнических систем.</p>
-</div>
 
-<div class="card panel">
-    <h2 class="contacts-title">
-        <img src="/static/mobil.png" alt="Контакты">
-        Контакты
-    </h2>
+    <div class="card panel">
+        <h2 class="company-title">
+            <img src="/static/workshop.png" alt="DLKIP Electronics">
+            DLKIP Electronics
+        </h2>
 
-    <div class="contact">
-        <div class="role">Заместитель директора</div>
-        <div class="name">Ислам Нигматов</div>
-        <a class="link" href="tel:+998900003779">
-            <img src="/static/mobil.png" alt="Телефон">
-            +998 90 000 37 79
-        </a>
+        <p>
+            Оборудование и решения для промышленной автоматизации,
+            КИПиА, электроники и электротехнических систем.
+        </p>
     </div>
 
-    <div class="contact">
-        <div class="role">Руководитель отдела продаж</div>
-        <div class="name">Шавкат Халиков</div>
-        <a class="link" href="tel:+998920013382">
-            <img src="/static/mobil.png" alt="Телефон">
-            +998 92 001 33 82
-        </a>
+    <div class="card panel">
+        <h2 class="contacts-title">
+            <img src="/static/mobil.png" alt="Контакты">
+            Контакты
+        </h2>
+
+        <div class="contact">
+            <div class="role">Заместитель директора</div>
+            <div class="name">Ислам Нигматов</div>
+            <a class="link" href="tel:+998900003779">
+                <img src="/static/mobil.png" alt="Телефон">
+                +998 90 000 37 79
+            </a>
+        </div>
+
+        <div class="contact">
+            <div class="role">Руководитель отдела продаж</div>
+            <div class="name">Шавкат Халиков</div>
+            <a class="link" href="tel:+998920013382">
+                <img src="/static/mobil.png" alt="Телефон">
+                +998 92 001 33 82
+            </a>
+        </div>
+
+        <div class="contact">
+            <div class="role">Дизайн чат-бота</div>
+            <div class="name">Solihov Muhammadali</div>
+            <a class="link" href="tel:+998940728098">
+                <img src="/static/mobil.png" alt="Телефон">
+                +998 94 072 80 98
+            </a>
+        </div>
+
+        <div class="contact">
+            <div class="role">Дизайн сайта</div>
+            <div class="name">Solihov Muhammadali</div>
+            <a class="link" href="tel:+998940728098">
+                <img src="/static/mobil.png" alt="Телефон">
+                +998 94 072 80 98
+            </a>
+        </div>
     </div>
 
-    <div class="contact">
-        <div class="role">Дизайн чат-бота</div>
-        <div class="name">Solihov Muhammadali</div>
-        <a class="link" href="tel:+998940728098">
-            <img src="/static/mobil.png" alt="Телефон">
-            +998 94 072 80 98
-        </a>
-    </div>
-
-    <div class="contact">
-        <div class="role">Дизайн сайта</div>
-        <div class="name">Solihov Muhammadali</div>
-        <a class="link" href="tel:+998940728098">
-            <img src="/static/mobil.png" alt="Телефон">
-            +998 94 072 80 98
-        </a>
-    </div>
-</div>
+    <div class="socials">
 
 <div class="socials">
     <a class="social" href="https://t.me/DlkipElectronics_bot" target="_blank" rel="noopener">
