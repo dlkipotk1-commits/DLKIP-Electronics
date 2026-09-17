@@ -514,7 +514,11 @@ DLKIP Electronics — технологии для надежной автома�
 </div>
 
 <div class="card panel">
-    <h2>🛒 Товары</h2>
+    <h2 class="products-title">
+        <img src="/static/product.png" alt="Продукция">
+        Каталог продукции
+    </h2>
+
     <div class="products">
         <div class="product">
             <h3>MPR-62</h3>
