@@ -363,6 +363,20 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     object-fit:contain;
     flex:0 0 32px;
 }}
+.company-title {{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}}
+
+.company-title img {{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    border-radius:7px;
+    flex:0 0 38px;
+}}
+
 </style>
 </head>
 <body>
@@ -474,7 +488,10 @@ DLKIP Electronics — технологии для надежной автома�
 
 <aside class="side">
 <div class="card panel">
-    <h2>🏢 DLKIP Electronics</h2>
+    <h2 class="company-title">
+        <img src="/static/company.png" alt="DLKIP Electronics">
+        DLKIP Electronics
+    </h2>
     <p>Оборудование и решения для промышленной автоматизации, КИПиА, электроники и электротехнических систем.</p>
 </div>
 
