@@ -351,7 +351,18 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     margin:0;
     justify-self:center;
 }}
+.products-title {{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}}
 
+.products-title img {{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    flex:0 0 32px;
+}}
 </style>
 </head>
 <body>
