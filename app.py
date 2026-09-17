@@ -327,6 +327,14 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     .bot-name {{ font-size:18px; }}
     .badge {{ display:none; }}
 }}
+.top-actions a img {{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    vertical-align:middle;
+    margin-right:5px;
+}}
+
 </style>
 </head>
 <body>
@@ -336,17 +344,30 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
 <div class="gutter-video right">
     <video src="/static/vertical.mp4" autoplay muted loop playsinline preload="metadata"></video>
 </div>
-
 <div class="app">
 
 <div class="topbar">
     <div class="topbrand"><span class="mini-dot"></span><span>DLKIP ELECTRONICS</span></div>
     <div class="top-actions">
-        <a href="https://t.me/DlkipElectronics_bot" target="_blank" rel="noopener">🤖 Bot</a>
-        <a href="https://t.me/dlmanokip" target="_blank" rel="noopener">💬 Telegram</a>
-        <a href="https://www.instagram.com/dlkip_electronics/" target="_blank" rel="noopener">📸 Instagram</a>
-        <a href="https://www.youtube.com/@DLKIP/videos" target="_blank" rel="noopener">▶ YouTube</a>
-        <a href="https://dlkip.uz" target="_blank" rel="noopener">🌐 DLKIP.UZ</a>
+       <a href="https://t.me/DlkipElectronics_bot" target="_blank" rel="noopener">
+    <img src="/static/bot.jpg" alt="Bot"> Bot
+</a>
+
+<a href="https://t.me/dlmanokip" target="_blank" rel="noopener">
+    <img src="/static/telegram.png" alt="Telegram"> Telegram
+</a>
+
+<a href="https://www.instagram.com/dlkip_electronics/" target="_blank" rel="noopener">
+    <img src="/static/instagram.png" alt="Instagram"> Instagram
+</a>
+
+<a href="https://www.youtube.com/@DLKIP/videos" target="_blank" rel="noopener">
+    <img src="/static/youtube.png" alt="YouTube"> YouTube
+</a>
+
+<a href="https://dlkip.uz" target="_blank" rel="noopener">
+    <img src="/static/website.png" alt="DLKIP.UZ"> DLKIP.UZ
+</a>
     </div>
 </div>
 
