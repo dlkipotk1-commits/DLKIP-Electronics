@@ -402,6 +402,19 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     object-fit:contain;
     flex:0 0 22px;
 }}
+.welcome-title {{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}}
+
+.welcome-title img {{
+    width:30px;
+    height:30px;
+    object-fit:contain;
+    flex:0 0 30px;
+}}
+
 </style>
 </head>
 <body>
@@ -482,33 +495,48 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
         <div class="badge">AI-ПЛАТФОРМА</div>
     </div>
 
-    <div id="messages">
-        <div class="message-row bot-row">
-            <div class="message bot-message">
-                <div class="label">DLKIP Operator Bot</div>
-                🤖 Добро пожаловать в DLKIP Electronics!<br><br>
+  <div id="messages">
+    <div class="message-row bot-row">
+        <div class="message bot-message">
 
-Я — Оператор бот  консультант DLKIP Electronics.<br><br>
+            <div class="label">DLKIP Operator Bot</div>
 
-Помогу вам:<br>
-• подобрать оборудование под вашу задачу;<br>
-• получить техническую информацию о продукции;<br>
-• разобраться в характеристиках и возможностях оборудования;<br>
-• найти решения в области промышленной автоматизации и КИПиА.<br><br>
-
-Опишите вашу задачу или задайте вопрос — я постараюсь предложить подходящее решение.<br><br>
-
-DLKIP Electronics — технологии для надежной автоматизации.
+            <div class="welcome-title">
+                <img src="/static/bot2.png" alt="DLKIP Operator Bot">
+                <span>Добро пожаловать в DLKIP Electronics!</span>
             </div>
+
+            <br>
+
+            Я — оператор-бот консультант DLKIP Electronics.<br><br>
+
+            Помогу вам:<br>
+            • подобрать оборудование под вашу задачу;<br>
+            • получить техническую информацию о продукции;<br>
+            • разобраться в характеристиках и возможностях оборудования;<br>
+            • найти решения в области промышленной автоматизации и КИПиА.<br><br>
+
+            Опишите вашу задачу или задайте вопрос — я постараюсь предложить подходящее решение.<br><br>
+
+            DLKIP Electronics — технологии для надежной автоматизации.
+
         </div>
+    </div>
+</div>
+
+<div class="input-area">
+    <div class="input-wrap">
+        <input
+            id="text"
+            type="text"
+            autocomplete="off"
+            placeholder="Введите вопрос о продукции или услугах..."
+            onkeydown="if(event.key==='Enter')sendMessage()"
+        >
     </div>
 
-    <div class="input-area">
-        <div class="input-wrap">
-            <input id="text" type="text" autocomplete="off" placeholder="Введите вопрос о продукции или услугах..." onkeydown="if(event.key==='Enter')sendMessage()">
-        </div>
-        <button class="send" onclick="sendMessage()">ОТПРАВИТЬ</button>
-    </div>
+    <button class="send" onclick="sendMessage()">ОТПРАВИТЬ</button>
+</div>
 </div>
 
 <aside class="side">
