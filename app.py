@@ -192,7 +192,7 @@ body:before {{
     position:absolute;
     top:110px;
     width:225px;
-    height:800px;
+    height:1200px;
     overflow:hidden;
     border:1px solid rgba(255,77,0,.32);
     border-radius:18px;
