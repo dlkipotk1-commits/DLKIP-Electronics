@@ -471,9 +471,13 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     object-fit:contain;
     flex:0 0 30px;
 }}
+#operator-window {{
+    width:420px;
+    max-width:calc(100vw - 36px);
+}}
 
 /* OPERATOR CHAT */
-#operator-messages {{ min-height:110px; max-height:220px; overflow-y:auto; margin-bottom:12px; padding:10px; background:#080808; border:1px solid #292929; border-radius:10px; }}
+#operator-messages {{ min-height:180px; max-height:300px; overflow-y:auto; margin-bottom:12px; padding:10px; background:#080808; border:1px solid #292929; border-radius:10px; }}
 .operator-message {{ color:#eee; font-size:13px; line-height:1.5; margin-bottom:8px; padding:8px 10px; border-radius:9px; background:#121212; }}
 .operator-message.user {{ border-left:2px solid var(--orange); }}
 .operator-message.operator-reply {{ border-left:2px solid #777; }}
