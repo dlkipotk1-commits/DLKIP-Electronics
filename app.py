@@ -278,8 +278,15 @@ body:before {{
 .name {{ font-size:15px; font-weight:900; line-height:1.3; }}
 .link {{ display:block; margin-top:3px; color:#ddd; text-decoration:none; font-size:13px; font-weight:700; line-height:1.4; overflow-wrap:anywhere; word-break:break-word; }}
 .link:hover {{ color:var(--orange2); }}
-.socials {{ display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:9px; }}
-.social {{ min-height:40px; display:flex; align-items:center; justify-content:center; border:1px solid #282828; border-radius:8px; background:#0f0f0f; color:#fff; text-decoration:none; font-size:12px; font-weight:800; }}
+.socials {{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:8px;
+    width:100%;
+    margin-top:9px;
+}}
+.social {{ min-height:40px; width:100%; display:flex; align-items:center; justify-content:center; border:1px solid #282828; border-radius:8px; background:#0f0f0f; color:#fff; text-decoration:none; font-size:12px; font-weight:800; }}
+.socials > .social:last-child {{ grid-column:1 / -1; }}
 .social:hover {{ border-color:rgba(255,77,0,.58); color:var(--orange2); }}
 .products {{ display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }}
 .product {{ padding:12px; border:1px solid #292929; border-radius:10px; background:#0e0e0e; }}
@@ -356,12 +363,11 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
 }}
 
 .social {{
-    display:grid;
-    grid-template-columns:26px 90px;
+    display:flex;
     align-items:center;
     justify-content:center;
-    column-gap:5px;
-    text-align:left;
+    gap:7px;
+    text-align:center;
 }}
 
 .social img {{
