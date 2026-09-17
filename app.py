@@ -191,8 +191,8 @@ body:before {{
 .gutter-video {{
     position:absolute;
     top:110px;
-    width:185px;
-    height:329px;
+    width:225px;
+    height:400px;
     overflow:hidden;
     border:1px solid rgba(255,77,0,.32);
     border-radius:18px;
@@ -200,8 +200,8 @@ body:before {{
     box-shadow:0 0 24px rgba(255,55,0,.08);
     z-index:2;
 }}
-.gutter-video.left {{ left:calc(50% - 550px); }}
-.gutter-video.right {{ right:calc(50% - 550px); }}
+.gutter-video.left {{ left:calc(50% - 700px); }}
+.gutter-video.right {{ right:calc(50% - 700px); }}
 .gutter-video video {{
     display:block;
     width:100%;
