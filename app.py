@@ -414,7 +414,18 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     object-fit:contain;
     flex:0 0 30px;
 }}
+.platforms-title {{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}}
 
+.platforms-title img {{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    flex:0 0 32px;
+}}
 </style>
 </head>
 <body>
@@ -651,7 +662,10 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
 <section class="card platforms">
     <div class="section-head">
         <div>
-            <h2>🌐 Площадки, каталоги и карты</h2>
+            <h2 class="platforms-title">
+                <img src="/static/website.png" alt="Площадки">
+                Площадки, каталоги и карты
+            </h2>
             <p>Основные карты и каталоги DLKIP Electronics</p>
         </div>
     </div>
