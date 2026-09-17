@@ -327,7 +327,8 @@ details summary:hover {{ background:#181818; border-color:rgba(255,77,0,.65); bo
     .bot-name {{ font-size:18px; }}
     .badge {{ display:none; }}
 }}
-.top-actions a img {{
+.top-actions a img,
+.social img {{
     width:22px;
     height:22px;
     object-fit:contain;
@@ -473,13 +474,27 @@ DLKIP Electronics — технологии для надежной автома�
         <div class="name">Solihov Muhammadali</div>
         <a class="link" href="tel:+998940728098">📞 +998 94 072 80 98</a>
     </div>
-    <div class="socials">
-        <a class="social" href="https://t.me/DlkipElectronics_bot" target="_blank">🤖 Bot</a>
-        <a class="social" href="https://t.me/dlmanokip" target="_blank">💬 Telegram</a>
-        <a class="social" href="https://www.instagram.com/dlkip_electronics/" target="_blank">📸 Instagram</a>
-        <a class="social" href="https://www.youtube.com/@DLKIP/videos" target="_blank">▶ YouTube</a>
-        <a class="social" href="https://dlkip.uz" target="_blank">🌐 DLKIP.UZ</a>
-    </div>
+<div class="socials">
+    <a class="social" href="https://t.me/DlkipElectronics_bot" target="_blank" rel="noopener">
+        <img src="/static/bot.jpg" alt="Bot"> Bot
+    </a>
+
+    <a class="social" href="https://t.me/dlmanokip" target="_blank" rel="noopener">
+        <img src="/static/telegram.png" alt="Telegram"> Telegram
+    </a>
+
+    <a class="social" href="https://www.instagram.com/dlkip_electronics/" target="_blank" rel="noopener">
+        <img src="/static/instagram.png" alt="Instagram"> Instagram
+    </a>
+
+    <a class="social" href="https://www.youtube.com/@DLKIP/videos" target="_blank" rel="noopener">
+        <img src="/static/youtube.png" alt="YouTube"> YouTube
+    </a>
+
+    <a class="social" href="https://dlkip.uz" target="_blank" rel="noopener">
+        <img src="/static/website.png" alt="DLKIP.UZ"> DLKIP.UZ
+    </a>
+</div>
 </div>
 
 <div class="card panel">
