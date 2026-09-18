@@ -1095,12 +1095,10 @@ def operator_send():
     if len(message) > 3000:
         return jsonify({"ok": False, "error": "Message is too long"}), 400
 
-   telegram_text = message
-
     try:
         result = telegram_api("sendMessage", {
             "chat_id": TELEGRAM_OPERATOR_CHAT_ID,
-            "text": telegram_text
+            "text": message
         })
         tg_message_id = result["result"]["message_id"]
         TELEGRAM_MESSAGE_CLIENTS[tg_message_id] = client_id
@@ -1115,30 +1113,39 @@ def operator_send():
 def telegram_webhook():
     update = request.get_json() or {}
     message = update.get("message") or {}
+    chat = message.get("chat") or {}
 
-    if str((message.get("chat") or {}).get("id", "")) != str(TELEGRAM_OPERATOR_CHAT_ID):
+    if str(chat.get("id", "")) != str(TELEGRAM_OPERATOR_CHAT_ID):
         return jsonify({"ok": True})
 
     reply_to = message.get("reply_to_message") or {}
     replied_message_id = reply_to.get("message_id")
     text = str(message.get("text", "")).strip()
 
-    client_id = TELEGRAM_MESSAGE_CLIENTS.get(replied_message_id)
-    if client_id and text:
-        queue = OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
-        next_id = (queue[-1]["id"] + 1) if queue else 1
-        queue.append({"id": next_id, "text": text})
+    if not replied_message_id or not text:
+        return jsonify({"ok": True})
 
+    client_id = TELEGRAM_MESSAGE_CLIENTS.get(replied_message_id)
+    if not client_id:
+        return jsonify({"ok": True})
+
+    queue = OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
+    next_id = (queue[-1]["id"] + 1) if queue else 1
+    queue.append({"id": next_id, "text": text})
     return jsonify({"ok": True})
 
 
 @app.route("/operator/messages", methods=["GET"])
 def operator_messages():
     client_id = request.args.get("client_id", "").strip()
+    if not client_id:
+        return jsonify({"messages": []})
+
     try:
         after = int(request.args.get("after", "0"))
     except ValueError:
         after = 0
+
     messages = OPERATOR_CLIENT_MESSAGES.get(client_id, [])
     return jsonify({"messages": [m for m in messages if m["id"] > after]})
 
@@ -1149,7 +1156,7 @@ def chat():
         return jsonify({"reply": "API Gemini ещё не подключён."})
 
     data = request.get_json() or {}
-    message = data.get("message", "").strip()
+    message = str(data.get("message", "")).strip()
 
     if not message:
         return jsonify({"reply": "Задайте ваш вопрос."})
@@ -1173,6 +1180,7 @@ def chat():
     except Exception as e:
         print("Gemini error:", e)
         return jsonify({"reply": "Произошла ошибка при обработке запроса."})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
