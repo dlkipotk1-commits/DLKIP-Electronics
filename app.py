@@ -160,7 +160,7 @@ def home():
 
 <meta name="google-site-verification" content="aOzrJYJ1BQFWghMazPJjYVoRknQlbDNuodHy75cqCUE" />
 
-<title>DLKIP Electronics • DLKIPChatBot</title>
+<title>DLKIP Electronics — промышленная автоматизация, КИПиА и электроника</title>
 
 <meta name="description" content="DLKIP Electronics — промышленная электроника, автоматизация, КИПиА, датчики, реле, контроллеры, источники питания и технические консультации в Узбекистане.">
 
