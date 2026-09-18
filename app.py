@@ -1112,17 +1112,27 @@ def operator_send():
 @app.route("/telegram/webhook", methods=["POST"])
 def telegram_webhook():
     update = request.get_json(silent=True) or {}
+    print("TELEGRAM_UPDATE:", update, flush=True)
+
     message = update.get("message") or {}
     chat = message.get("chat") or {}
 
+    print("TELEGRAM_CHAT_ID:", chat.get("id"), flush=True)
+    print("EXPECTED_CHAT_ID:", TELEGRAM_OPERATOR_CHAT_ID, flush=True)
+
     if str(chat.get("id", "")) != str(TELEGRAM_OPERATOR_CHAT_ID):
+        print("TELEGRAM_WRONG_CHAT", flush=True)
         return jsonify({"ok": True})
 
     reply_to = message.get("reply_to_message") or {}
     replied_message_id = reply_to.get("message_id")
     text = str(message.get("text") or "").strip()
 
+    print("TELEGRAM_REPLY_TO:", replied_message_id, flush=True)
+    print("TELEGRAM_TEXT:", text, flush=True)
+
     if not replied_message_id or not text:
+        print("TELEGRAM_NO_REPLY_OR_TEXT", flush=True)
         return jsonify({"ok": True})
 
     client_id = TELEGRAM_MESSAGE_CLIENTS.get(replied_message_id)
@@ -1131,9 +1141,17 @@ def telegram_webhook():
         client_id = TELEGRAM_MESSAGE_CLIENTS.get(str(replied_message_id))
 
     if not client_id:
-        print("TELEGRAM_REPLY_CLIENT_NOT_FOUND:", replied_message_id)
-        print("TELEGRAM_MESSAGE_CLIENTS:", TELEGRAM_MESSAGE_CLIENTS)
+        print("TELEGRAM_REPLY_CLIENT_NOT_FOUND:", replied_message_id, flush=True)
+        print("TELEGRAM_MESSAGE_CLIENTS:", TELEGRAM_MESSAGE_CLIENTS, flush=True)
         return jsonify({"ok": True})
+
+    queue = OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
+    next_id = (queue[-1]["id"] + 1) if queue else 1
+    queue.append({"id": next_id, "text": text})
+
+    print("TELEGRAM_REPLY_SAVED:", client_id, text, flush=True)
+
+    return jsonify({"ok": True})
 
     queue = OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
     next_id = (queue[-1]["id"] + 1) if queue else 1
