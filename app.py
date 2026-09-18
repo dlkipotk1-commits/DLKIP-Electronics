@@ -19,7 +19,7 @@ TELEGRAM_OPERATOR_CHAT_ID = os.environ.get("TELEGRAM_OPERATOR_CHAT_ID")
 # Productionda Redis/Postgres ishlatish yaxshiroq.
 OPERATOR_CLIENT_MESSAGES = {}
 TELEGRAM_MESSAGE_CLIENTS = {}
-
+LAST_OPERATOR_CLIENT_ID = None
 
 DLKIP_CONTEXT = """
 Вы — официальный бот-оператор компании DLKIP Electronics.
@@ -1083,6 +1083,7 @@ def telegram_api(method, payload):
 
 @app.route("/operator/send", methods=["POST"])
 def operator_send():
+    global LAST_OPERATOR_CLIENT_ID
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_OPERATOR_CHAT_ID:
         return jsonify({"ok": False, "error": "Telegram operator is not configured"}), 503
 
@@ -1103,6 +1104,7 @@ def operator_send():
         tg_message_id = result["result"]["message_id"]
         TELEGRAM_MESSAGE_CLIENTS[tg_message_id] = client_id
         OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
+        LAST_OPERATOR_CLIENT_ID = client_id
         return jsonify({"ok": True})
     except Exception as e:
         print("Telegram send error:", e)
@@ -1111,55 +1113,49 @@ def operator_send():
 
 @app.route("/telegram/webhook", methods=["POST"])
 def telegram_webhook():
-    update = request.get_json(silent=True) or {}
-    print("TELEGRAM_UPDATE:", update, flush=True)
+    global LAST_OPERATOR_CLIENT_ID
 
+    update = request.get_json(silent=True) or {}
     message = update.get("message") or {}
     chat = message.get("chat") or {}
 
-    print("TELEGRAM_CHAT_ID:", chat.get("id"), flush=True)
-    print("EXPECTED_CHAT_ID:", TELEGRAM_OPERATOR_CHAT_ID, flush=True)
-
     if str(chat.get("id", "")) != str(TELEGRAM_OPERATOR_CHAT_ID):
-        print("TELEGRAM_WRONG_CHAT", flush=True)
+        return jsonify({"ok": True})
+
+    text = str(message.get("text") or "").strip()
+    if not text:
         return jsonify({"ok": True})
 
     reply_to = message.get("reply_to_message") or {}
     replied_message_id = reply_to.get("message_id")
-    text = str(message.get("text") or "").strip()
 
-    print("TELEGRAM_REPLY_TO:", replied_message_id, flush=True)
-    print("TELEGRAM_TEXT:", text, flush=True)
+    client_id = None
 
-    if not replied_message_id or not text:
-        print("TELEGRAM_NO_REPLY_OR_TEXT", flush=True)
-        return jsonify({"ok": True})
+    if replied_message_id:
+        client_id = TELEGRAM_MESSAGE_CLIENTS.get(replied_message_id)
 
-    client_id = TELEGRAM_MESSAGE_CLIENTS.get(replied_message_id)
+        if not client_id:
+            client_id = TELEGRAM_MESSAGE_CLIENTS.get(str(replied_message_id))
 
     if not client_id:
-        client_id = TELEGRAM_MESSAGE_CLIENTS.get(str(replied_message_id))
+        client_id = LAST_OPERATOR_CLIENT_ID
 
     if not client_id:
-        print("TELEGRAM_REPLY_CLIENT_NOT_FOUND:", replied_message_id, flush=True)
-        print("TELEGRAM_MESSAGE_CLIENTS:", TELEGRAM_MESSAGE_CLIENTS, flush=True)
+        print("TELEGRAM_CLIENT_NOT_FOUND", flush=True)
         return jsonify({"ok": True})
 
     queue = OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
     next_id = (queue[-1]["id"] + 1) if queue else 1
-    queue.append({"id": next_id, "text": text})
 
-    print("TELEGRAM_REPLY_SAVED:", client_id, text, flush=True)
+    queue.append({
+        "id": next_id,
+        "text": text
+    })
 
-    return jsonify({"ok": True})
-
-    queue = OPERATOR_CLIENT_MESSAGES.setdefault(client_id, [])
-    next_id = (queue[-1]["id"] + 1) if queue else 1
-    queue.append({"id": next_id, "text": text})
-
-    print("TELEGRAM_REPLY_SAVED:", client_id, text)
+    print("TELEGRAM_MESSAGE_SAVED:", client_id, text, flush=True)
 
     return jsonify({"ok": True})
+   
 
 @app.route("/operator/messages", methods=["GET"])
 def operator_messages():
