@@ -126,6 +126,30 @@ def platform_cards():
 
 PLATFORM_CARDS = platform_cards()
 
+
+@app.route("/sitemap.xml")
+def sitemap():
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://dlkip-electronics.onrender.com/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>"""
+    return app.response_class(xml, mimetype="application/xml")
+
+
+@app.route("/robots.txt")
+def robots():
+    text = """User-agent: *
+Allow: /
+
+Sitemap: https://dlkip-electronics.onrender.com/sitemap.xml
+"""
+    return app.response_class(text, mimetype="text/plain")
+
+
 @app.route("/")
 def home():
     return f"""<!DOCTYPE html>
@@ -137,7 +161,6 @@ def home():
 <meta name="google-site-verification" content="aOzrJYJ1BQFWghMazPJjYVoRknQlbDNuodHy75cqCUE" />
 
 <title>DLKIP Electronics • DLKIPChatBot</title>
-
 <style>
 :root {{
     --bg:#050505; --panel:#0d0d0d; --line:#282828;
