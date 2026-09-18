@@ -133,7 +133,11 @@ def home():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-site-verification" content="aOzrJYJ1BQFWghMazPJjYVoRknQlbDNuodHy75cqCUE" />
+
 <title>DLKIP Electronics • DLKIPChatBot</title>
+
 <style>
 :root {{
     --bg:#050505; --panel:#0d0d0d; --line:#282828;
