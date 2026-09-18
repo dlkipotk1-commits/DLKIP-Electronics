@@ -170,7 +170,15 @@ def home():
 <meta property="og:description" content="Промышленная электроника, автоматизация, КИПиА, датчики, реле, контроллеры и технические консультации DLKIP Electronics.">
 <meta property="og:url" content="https://dlkip-electronics.onrender.com/">
 <meta property="og:type" content="website">
-
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DLKIP Electronics",
+  "url": "https://dlkip-electronics.onrender.com/",
+  "description": "Промышленная электроника, автоматизация, КИПиА, датчики, реле, контроллеры, источники питания и технические консультации в Узбекистане."
+}}
+</script>
 <style>
 :root {{
     --bg:#050505; --panel:#0d0d0d; --line:#282828;
