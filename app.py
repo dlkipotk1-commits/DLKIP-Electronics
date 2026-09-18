@@ -1095,14 +1095,7 @@ def operator_send():
     if len(message) > 3000:
         return jsonify({"ok": False, "error": "Message is too long"}), 400
 
-    short_id = client_id[:12]
-    telegram_text = (
-        "🌐 DLKIP сайт\\n"
-        f"Клиент: {short_id}\\n\\n"
-        f"{message}\\n\\n"
-        "↩️ Ответьте на ЭТО сообщение через Reply."
-    )
-
+  telegram_text = message
     try:
         result = telegram_api("sendMessage", {
             "chat_id": TELEGRAM_OPERATOR_CHAT_ID,
