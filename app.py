@@ -161,6 +161,16 @@ def home():
 <meta name="google-site-verification" content="aOzrJYJ1BQFWghMazPJjYVoRknQlbDNuodHy75cqCUE" />
 
 <title>DLKIP Electronics • DLKIPChatBot</title>
+
+<meta name="description" content="DLKIP Electronics — промышленная электроника, автоматизация, КИПиА, датчики, реле, контроллеры, источники питания и технические консультации в Узбекистане.">
+
+<link rel="canonical" href="https://dlkip-electronics.onrender.com/">
+
+<meta property="og:title" content="DLKIP Electronics • DLKIPChatBot">
+<meta property="og:description" content="Промышленная электроника, автоматизация, КИПиА, датчики, реле, контроллеры и технические консультации DLKIP Electronics.">
+<meta property="og:url" content="https://dlkip-electronics.onrender.com/">
+<meta property="og:type" content="website">
+
 <style>
 :root {{
     --bg:#050505; --panel:#0d0d0d; --line:#282828;
